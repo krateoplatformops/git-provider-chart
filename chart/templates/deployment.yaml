@@ -27,11 +27,10 @@ spec:
       - name: {{ .Chart.Name }}
         image: ghcr.io/krateoplatformops/{{ .Chart.Name }}:{{ .Chart.AppVersion }}
         imagePullPolicy: IfNotPresent
+        {{- with .Values.podEnv }}
         env:
-        - name: GIT_PROVIDER_DEBUG
-          value: "true"
-        - name: GIT_PROVIDER_POLL_INTERVAL
-          value: "3m"
+          {{- toYaml . | nindent 10 }}
+        {{- end }}
         ports:
         - containerPort: 8080
           name: metrics
