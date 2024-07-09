@@ -6,3 +6,6 @@ podEnv:
     value: "3m"
   - name: GIT_PROVIDER_SERVICE_PORT_HACK
     value: "false"
+deployment:
+  runAsGroup: 2000
+  runAsUser: 2000
