@@ -78,6 +78,6 @@ tolerations: []
 affinity: {}
 
 env:
-  GIT_PROVIDER_DEBUG: "true"
+  GIT_PROVIDER_DEBUG: "false"
   GIT_PROVIDER_POLL_INTERVAL: "3m"
   GIT_PROVIDER_SERVICE_PORT_HACK: "false"
