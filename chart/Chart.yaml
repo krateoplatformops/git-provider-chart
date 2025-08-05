@@ -30,6 +30,6 @@ sources:
   - https://github.com/krateoplatformops/git-provider-chart
 
 dependencies:
-  - name: crd-chart
+  - name: git-provider-crd
     version: CHART_VERSION
     repository: file://../crd-chart
