@@ -68,7 +68,7 @@ jobs:
       - name: Print latest App Version
         run: echo ${{ steps.app_version.outputs.tag }}
 
-      - name: Replace APP_VERSION in Chart.yaml
+      - name: Replace APP_VERSION in ./chart/Chart.yaml
         run: sed -i 's/APP_VERSION/${{ steps.app_version.outputs.tag }}/g' ./chart/Chart.yaml
 
       - name: Set up Helm
