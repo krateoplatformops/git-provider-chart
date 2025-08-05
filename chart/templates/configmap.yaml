@@ -5,6 +5,6 @@ metadata:
   labels:
     {{- include "git-provider.labels" . | nindent 4 }}
 data:
-  GIT_PROVIDER_DEBUG: "{{ .Values.env.GIT_PROVIDER_DEBUG }}"
-  GIT_PROVIDER_POLL_INTERVAL: "{{ .Values.env.GIT_PROVIDER_POLL_INTERVAL }}"
-  GIT_PROVIDER_SERVICE_PORT_HACK: "{{ .Values.env.GIT_PROVIDER_SERVICE_PORT_HACK }}"
+  {{- range $key, $value := .Values.env }}
+  {{ $key }}: {{ $value | quote }}
+  {{- end }}
