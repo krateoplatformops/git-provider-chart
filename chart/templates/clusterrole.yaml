@@ -5,6 +5,19 @@ metadata:
   labels:
     {{- include "git-provider.labels" . | nindent 4 }}
 rules:
+  # ClusterVisibilty, needed to get resource from references across namespaces
+  - apiGroups: ["*"]
+    resources: ["*"]
+    verbs: ["get"]
+
+  - apiGroups: ["git.krateo.io"]
+    resources: ["localresources"]
+    verbs: ["create", "delete", "get", "list", "patch", "update", "watch"]
+
+  - apiGroups: ["git.krateo.io"]
+    resources: ["localresources/status"]
+    verbs: ["get", "patch", "update"]
+
   - apiGroups: ["git.krateo.io"]
     resources: ["repoes"]
     verbs: ["create", "delete", "get", "list", "patch", "update", "watch"]
